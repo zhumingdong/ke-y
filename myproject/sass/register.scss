@@ -1,0 +1,267 @@
+@import "compass/reset";
+@import "compass/css3";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@mixin w {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin clearfix {
+  clear: both;
+}
+
+$font-size: 12px;
+$left: left;
+$right: right;
+$red: #ff0000;
+
+//header
+.header {
+  width: 100%;
+
+  .header_top {
+    width: 100%;
+    height: 31px;
+    background: #ccc;
+
+    .w {
+      @include w;
+
+      .top_left {
+        float: $left;
+        font-size: $font-size;
+        line-height: 31px;
+
+        a {
+          margin-#{$right}: 20px;
+        }
+
+        a:hover {
+          color: #f00;
+        }
+      }
+
+      .top_right {
+        float: $right;
+        font-size: $font-size;
+        line-height: 31px;
+
+        ul {
+          width: 100%;
+
+          li {
+            float: left;
+            margin-#{$left}: 20px;
+
+            a:hover {
+              color: #f00;
+            }
+          }
+        }
+      }
+
+      .clearfix {
+        @include clearfix;
+      }
+    }
+  }
+}
+
+.header_tb {
+  width: 100%;
+  height: 120px;
+  border-bottom: 3px solid #f00;
+
+  .w {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .h_tb_left {
+      float: $left;
+      width: 163px;
+      height: 120px;
+      line-height: 120px;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    .h_tb_right {
+      float: $right;
+      width: 231px;
+      height: 120px;
+      line-height: 120px;
+
+      a {
+        color: #333333;
+      }
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  padding-top: 30px;
+  background: #f5f5f5;
+  .main_container {
+    width: 1000px;
+    margin: 0 auto;
+    .main_title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .register_wrap {
+      width: 100%;
+      .register_box {
+        width: 600px;
+        margin: 0 auto;
+        .padd {
+          width: 500px;
+          padding: 35px 50px;
+          ul {
+            width: 100%;
+            li {
+              width: 100%;
+              height: 54px;
+              line-height: 54px;
+              margin-bottom: 10px;
+              position: relative;
+              label {
+                font-size: 14px;
+                position: absolute;
+                left: 10px;
+                #span1,
+                #span2 {
+                  letter-spacing: 4px;
+                }
+              }
+              input {
+                width: 354px;
+                border: 1px solid #ccc;
+                font-size: 14px;
+                padding: 18px 20px 18px 96px;
+              }
+              #input3 {
+                width: 150px;
+              }
+              #send_btn {
+                display: block;
+                width: 200px;
+                height: 36px;
+                border-radius: 10px;
+                background: #f00;
+                text-align: center;
+                line-height: 36px;
+                color: #fff;
+                position: absolute;
+                right: 28px;
+                top: 10px;
+              }
+              .icon_box {
+                position: absolute;
+                top: 0;
+                left: 500px;
+                width: 300px;
+                height: 54px;
+                line-height: 54px;
+                background: url(../images/error.png) no-repeat;
+                background-size: 13px;
+                background-position: 0 21px;
+                color: #f00;
+                font-size: 12px;
+                padding-left: 16px;
+                display: none;
+              }
+              .icon_add {
+                background: url(../images/true.png) no-repeat;
+                background-size: 32px;
+                background-position: -9px 11px;
+                color: limegreen !important;
+              }
+              #input6 {
+                width: 13px;
+                height: 13px;
+              }
+            }
+            .li6 {
+              height: 30px;
+              text-align: left;
+              line-height: 0;
+            }
+          }
+          .register_btn {
+            width: 470px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+
+            #submit_zc {
+              display: block;
+              width: 100%;
+              height: 100%;
+              background: #f00;
+              text-align: center;
+              line-height: 50px;
+              color: #fff;
+              border-radius: 8px;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// footer
+.footer {
+  width: 100%;
+  margin-top: 80px;
+  background: #fff;
+
+  .footer_container {
+    @include w;
+
+    .footer_ff {
+      text-align: center;
+      margin-top: 20px;
+
+      a {
+        display: inline-block;
+        width: 100px;
+        color: #666;
+      }
+
+      a:hover {
+        color: #f00;
+      }
+
+      p {
+        padding-top: 15px;
+        color: #666;
+      }
+    }
+
+    .footer_fs {
+      text-align: center;
+      padding-top: 15px;
+    }
+  }
+}

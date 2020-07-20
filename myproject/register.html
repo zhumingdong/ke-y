@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheets/register.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header_top">
+            <div class="w">
+                <div class="top_left">
+                    <a href="./login.html">登陆</a>
+                    <a href="./register.html">免费注册</a>
+                </div>
+
+                <div class="top_right">
+                    <ul>
+                        <li>
+                            <a href="#">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="#">我的关注</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                帮助中心
+                                <i></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                商家入驻
+                                <i></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="header_tb">
+            <div class="w">
+                <div class="h_tb_left">
+                    <a href="#" class="left_img1">
+                        <img src="./images/logo.png" alt="" title="">
+                    </a>
+                </div>
+                <div class="h_tb_right">
+                    <a href="#">
+                        <img src="./images/taogao_link_bg.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main_container">
+            <h2 class="main_title">新用户注册</h2>
+            <div class="register_wrap">
+                <div class="register_box">
+                    <div class="padd">
+                        <form  onsubmit="return false">
+                            <ul>
+                                <li>
+                                    <label for=""><span id="span1">账户名：</span></label>
+                                    <input type="text" name="username" placeholder="账户名">
+                                    <p class="icon_box"></p>
+                                </li>
+                                <li>
+                                    <label for=""><span id="span2">手机号：</span></label>
+                                    <input type="text" name="phone_number" placeholder="请输入手机号">
+                                    <p class="icon_box"></p>
+                                </li>
+
+                                <li>
+                                    <label for=""><span>短信验证：</span></label>
+                                    <input type="text" name="yzm" id="input3" placeholder="输入短信验证码">
+                                    <a id="send_btn" href="#">
+                                        <span>发送短信验证码</span>
+                                    </a>
+                                    <p class="icon_box"></p>
+                                </li>
+                                <li>
+                                    <label for=""><span>设置密码：</span></label>
+                                    <input type="password" name="password" placeholder="6-20个大小写英文字母、符号或者数字">
+                                    <p class="icon_box"></p>
+                                </li>
+                                <li>
+                                    <label for=""><span>确认密码</span></label>
+                                    <input type="password" name="password2" placeholder="请再次输入密码">
+                                    <p class="icon_box"></p>
+                                </li>
+                                <li class="li6">
+                                    <input type="checkbox" id="input6" checked>
+                                    <span> 我已阅读并同意《<a href="">服务协议</a>》</span>
+                                </li>
+                            </ul>
+                            <div class="register_btn">
+                                <input id="submit_zc" type="submit" value="注册">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer_container">
+
+            <div class="footer_ff">
+                <a href="#">东方支付</a>
+                <span>|</span>
+                <a href="#">帮助中心</a>
+                <span>|</span>
+                <a href="#">新闻中心</a>
+                <span>|</span>
+                <a href="#">联系我们</a>
+                <p>Copyright 2019上海跨境通国际贸易有限公司All Rights Reserved.沪ICP备14006635号-1</p>
+            </div>
+            <div class="footer_fs">
+                <a href="#"><img src="./images/footer_icon_shgs.gif" alt=""></a>
+                <a href="#"><img src="./images/footer_icon_wgdjp.png" alt="" width="47px" height="47px"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var username = document.getElementsByName("username")[0];
+        var phone_number = document.getElementsByName("phone_number")[0];
+        var yzm = document.getElementById("input3");
+        var password = document.getElementsByName("password")[0];
+        var password2 = document.getElementsByName("password2")[0];
+        var submit_zc = document.getElementById("submit_zc");
+
+        //获取判断的显示框
+        var icon_box = document.querySelectorAll(".icon_box");
+
+        //开关
+        var flag1 = flag2 = flag3 = flag4 = false;
+
+        //账户名
+        username.onchange = function () {
+            if (this.value == "") {
+                icon_box[0].innerHTML = "账户名不能为空";
+                icon_box[0].style.display = "block";
+                flag1 = false;
+                //字母开头，允许5-16字节，允许字母数字下划线
+            } else if (/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test(this.value)) {
+                icon_box[0].innerHTML = "格式正确";
+                icon_box[0].style.display = "block";
+                icon_box[0].classList.add("icon_add");
+                flag1 = true;
+            } else {
+                icon_box[0].innerHTML = "格式错误";
+                icon_box[0].style.display = "block";
+                flag1 = false;
+            }
+        }
+
+        //手机号
+        phone_number.onchange = function () {
+            if (this.value == "") {
+                icon_box[1].innerHTML = "手机号不能为空";
+                icon_box[1].style.display = "block";
+                flag2 = false;
+            } else if (/^[1][3-9][0-9]{9}$/.test(this.value)) {
+                icon_box[1].innerHTML = "格式正确";
+                icon_box[1].style.display = "block";
+                icon_box[1].classList.add("icon_add");
+                flag2 = true;
+            } else {
+                icon_box[1].innerHTML = "请填写正确的手机号";
+                icon_box[1].style.display = "block";
+                flag2 = false;
+            }
+        }
+
+        //输入验证码
+        yzm.onchange = function () {
+            if (this.value == "") {
+                icon_box[2].innerHTML = "请输入验证码";
+                icon_box[2].style.display = "block";
+            } //else if (this.value == "") {
+            //     icon_box[2].innerHTML = "验证码输入正确";
+            //     icon_box[2].style.display = "block";
+            //     icon_box[2].classList.add("icon_add");
+            //     flag3 = true;
+            // } else {
+            //     icon_box[2].innerHTML = "输入错误，请从新输入";
+            //     icon_box[2].style.display = "block";
+            // }
+        }
+
+        //密码
+        password.onchange = function () {
+            if (this.value == "") {
+                icon_box[3].innerHTML = "密码不能为空";
+                icon_box[3].style.display = "block";
+                flag3 = false;
+                //必须包含大小写字母和数字的组合，可以使用特殊字符，长度在6-20之间
+            } else if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/.test(this.value)) {
+                icon_box[3].innerHTML = "格式正确";
+                icon_box[3].style.display = "block";
+                icon_box[3].classList.add("icon_add");
+                flag3 = true;
+            } else {
+                icon_box[3].innerHTML = "请输入6-20个大小写英文字母、符号或数字";
+                icon_box[3].style.display = "block";
+                flag3 = false;
+            }
+        }
+
+        //确认密码
+        password2.onchange = function () {
+            if (this.value == "") {
+                icon_box[4].innerHTML = "密码不能为空";
+                icon_box[4].style.display = "block";
+                flag4 = false;
+            } else if (this.value == password.value) {
+                icon_box[4].innerHTML = "两次输入密码一致";
+                icon_box[4].style.display = "block";
+                icon_box[4].classList.add("icon_add");
+                flag4 = true;
+            } else {
+                icon_box[4].innerHTML = "两次输入密码不一致";
+                icon_box[4].style.display = "block";
+                flag4 = false;
+            }
+        }
+
+        //注册
+        submit_zc.onclick = function () {
+            console.log(flag1, flag2, flag3, flag4);
+            if (flag1 && flag2 && flag3 && flag4) {
+                var xml = new XMLHttpRequest();
+                xml.open("get", `reg.php?username=${username.value}&password=${password.value}`);
+                xml.send();
+                xml.onreadystatechange = function () {
+                    if (xml.readyState == 4 && xml.status == 200) {
+                        console.log(xml.responseText);
+                        if (xml.responseText == "1") {
+                            alert('您已注册成功，返回登录');
+                             location = 'login.html';
+                        }else{
+                            alert('您输入的用户名已存在,请重新注册！');
+                            location='register.html';
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
